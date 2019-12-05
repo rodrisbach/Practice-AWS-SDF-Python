@@ -9,16 +9,7 @@ profile_name = 'ansible-training'
 instance_type = 't2.micro'
 instance_name = 'ansible-training'
 user_data = """#!/bin/bash
-NEWUSER="rsbach"
-NEWUSERKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxnVAjZ1T4mkQlzcz+ureqhan8/r/Ti0fsqtThMmMBMfdfTVZ4Yy6c+ji0vc5yCfm52cN3vScL5Ok5yusUGrd9fNOb/LqFS1OUvYWhe5LXw1/7DF/60+yrW9dnjY/jd1CtD72E8SZHtJqFa5wDMNh/9CDZIPdheLIIao/g6gDyYPV2ZELLIXE9pog62RopK9oAkHS4eyezvFMB0pqAn5GEHkJ8IPcJL8ZY5C4HG/Ar4h9+Fzu1cDOWr0ABAvj07z0zaXUgJmnFNdO24+8Kye/NXEW+NTH2iVDweLlEmjNEP+4UPx1mVB6Glivwulqc1z7ctKp6eIwojUZk83FDbY1L rsbach@edrans-pc"
-adduser $NEWUSER
-echo "$NEWUSER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-mkdir /home/$NEWUSER/.ssh
-echo $NEWUSERKEY >> /home/$NEWUSER/.ssh/authorized_keys
-chown -R $NEWUSER:$NEWUSER /home/$NEWUSER/.ssh
-chmod 0700 /home/$NEWUSER/.ssh
-chmod 0600 /home/$NEWUSER/.ssh/authorized_keys"""
-
+ls """
 new_sg = SecurityGroup(profile_name)
 new_sg.get_vpc_ID()
 try:
