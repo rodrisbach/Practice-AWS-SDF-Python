@@ -12,6 +12,7 @@ user_data = """#!/bin/bash
 ls """
 new_sg = SecurityGroup(profile_name)
 new_sg.get_vpc_ID()
+file_name = "instance_list.txt"
 try:
     response = new_sg.is_there_a_security_group(sg_name)
     print("The security groups already exists")
@@ -28,6 +29,6 @@ new_sg.delete_SecurityGroup(security_groupID)
 
 new_instance = EC2_Instance(ami,profile_name,instance_type,instance_name,user_data)
 instance_list = new_instance.create_instance(security_groupID,2,2)
-new_instance.create_instance_list(instance_list)
-new_instance.create_ansible_inventory(profile_name,"instance_list.txt")
+new_instance.create_instance_list(instance_list,file_name)
+new_instance.create_ansible_inventory(profile_name,file_name)
 new_instance.delete_instances(instance_list)

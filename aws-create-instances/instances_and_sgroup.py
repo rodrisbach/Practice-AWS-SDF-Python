@@ -166,8 +166,8 @@ class EC2_Instance():
                 print(e)
 
 
-    def create_instance_list(self, instances_list):
-        with open("instance_list.txt","w") as file:
+    def create_instance_list(self, instances_list, file_name):
+        with open(file_name,"w") as file:
             for i in instances_list:
                 file.write("%s\n" %i)
 
